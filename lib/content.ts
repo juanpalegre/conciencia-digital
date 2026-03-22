@@ -8,6 +8,8 @@ export interface EventFrontmatter {
   location: string;
   upcoming?: boolean;
   description?: string;
+  image?: string;
+  imageAlt?: string;
 }
 
 export interface ResourceFrontmatter {

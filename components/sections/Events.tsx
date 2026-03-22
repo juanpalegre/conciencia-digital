@@ -7,18 +7,27 @@ interface Props {
 }
 
 export function Events({ events }: Props) {
-  const preview = events.slice(0, 3);
+  const past = events.filter((e) => !e.frontmatter.upcoming);
+  const upcoming = events.filter((e) => e.frontmatter.upcoming);
+
+  // Featured event: the one with an image, preferring Microsoft
+  const featured =
+    past.find((e) => e.slug === "microsoft-centros-excelencia") ??
+    past.find((e) => e.frontmatter.image) ??
+    past[0];
+
+  const rest = past.filter((e) => e.slug !== featured?.slug);
 
   return (
     <section className="py-20 bg-bg" id="eventos">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
-        <div className="flex items-end justify-between mb-12">
+        <div className="flex items-end justify-between mb-10">
           <div>
             <h2 className="font-display text-3xl md:text-4xl text-black mb-2">
               Eventos
             </h2>
             <p className="font-body text-gray-text text-lg">
-              Capacitaciones realizadas y próximas fechas.
+              Dónde estuve y de qué hablé.
             </p>
           </div>
           <Link
@@ -29,58 +38,94 @@ export function Events({ events }: Props) {
           </Link>
         </div>
 
-        {/* Photo strip — real evidence */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-12 rounded-2xl overflow-hidden">
-          <div className="relative aspect-[4/3] col-span-1 md:col-span-2">
-            <Image
-              src="/images/charla-docentes-2.jpeg"
-              alt="Juan Pablo facilitando taller de IA con docentes"
-              fill
-              className="object-cover object-center"
-              sizes="(max-width: 768px) 50vw, 33vw"
-            />
+        {/* Featured event — big card with photo */}
+        {featured && (
+          <div className="mb-6 bg-white rounded-3xl overflow-hidden border border-teal-light shadow-sm">
+            <div className="grid grid-cols-1 md:grid-cols-2">
+              <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[320px]">
+                <Image
+                  src={featured.frontmatter.image ?? "/images/presentacion-microsoft.jpeg"}
+                  alt={featured.frontmatter.imageAlt ?? featured.frontmatter.title}
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              <div className="p-8 flex flex-col justify-center">
+                <p className="font-body text-xs font-semibold uppercase tracking-widest text-teal mb-3">
+                  Destacado
+                </p>
+                <h3 className="font-display text-2xl text-black mb-2 leading-snug">
+                  {featured.frontmatter.title}
+                </h3>
+                <p className="font-body text-xs text-gray-text mb-4">
+                  {featured.frontmatter.date} · {featured.frontmatter.location}
+                </p>
+                {featured.frontmatter.description && (
+                  <p className="font-body text-sm text-gray-text leading-relaxed">
+                    {featured.frontmatter.description}
+                  </p>
+                )}
+              </div>
+            </div>
           </div>
-          <div className="relative aspect-[4/3]">
-            <Image
-              src="/images/equipo-escuela.jpeg"
-              alt="Juan Pablo con el equipo docente de una escuela"
-              fill
-              className="object-cover object-center"
-              sizes="(max-width: 768px) 50vw, 33vw"
-            />
-          </div>
-        </div>
+        )}
 
-        {preview.length === 0 ? (
-          <p className="font-body text-gray-text">
-            Próximamente nuevas fechas.
-          </p>
-        ) : (
-          <div className="space-y-4">
-            {preview.map((e) => (
+        {/* Rest of past events */}
+        {rest.length > 0 && (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+            {rest.map((e) => (
               <div
                 key={e.slug}
-                className="bg-white rounded-2xl px-6 py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border border-teal-light"
+                className="bg-white rounded-2xl overflow-hidden border border-teal-light"
               >
-                <div>
-                  <div className="flex items-center gap-3 mb-1">
-                    {e.frontmatter.upcoming && (
-                      <span className="text-xs font-body font-semibold bg-teal text-white px-2 py-0.5 rounded-full">
-                        Próximo
-                      </span>
-                    )}
-                    <p className="font-body text-xs text-gray-text">
-                      {e.frontmatter.date} · {e.frontmatter.location}
-                    </p>
+                {e.frontmatter.image && (
+                  <div className="relative aspect-[16/9]">
+                    <Image
+                      src={e.frontmatter.image}
+                      alt={e.frontmatter.imageAlt ?? e.frontmatter.title}
+                      fill
+                      className="object-cover object-center"
+                      sizes="(max-width: 640px) 100vw, 50vw"
+                    />
                   </div>
-                  <h3 className="font-display text-lg text-black">
+                )}
+                <div className="px-5 py-4">
+                  <p className="font-body text-xs text-gray-text mb-1">
+                    {e.frontmatter.date} · {e.frontmatter.location}
+                  </p>
+                  <h3 className="font-display text-lg text-black leading-snug">
                     {e.frontmatter.title}
                   </h3>
                   {e.frontmatter.description && (
-                    <p className="font-body text-sm text-gray-text mt-1">
+                    <p className="font-body text-xs text-gray-text mt-2 leading-relaxed">
                       {e.frontmatter.description}
                     </p>
                   )}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Upcoming */}
+        {upcoming.length > 0 && (
+          <div className="space-y-3">
+            {upcoming.map((e) => (
+              <div
+                key={e.slug}
+                className="bg-teal-light rounded-2xl px-6 py-4 flex items-center gap-4 border border-teal-mid"
+              >
+                <span className="text-xs font-body font-semibold bg-teal text-white px-2 py-0.5 rounded-full whitespace-nowrap">
+                  Próximo
+                </span>
+                <div>
+                  <p className="font-body text-xs text-gray-text">
+                    {e.frontmatter.date} · {e.frontmatter.location}
+                  </p>
+                  <h3 className="font-display text-base text-black">
+                    {e.frontmatter.title}
+                  </h3>
                 </div>
               </div>
             ))}

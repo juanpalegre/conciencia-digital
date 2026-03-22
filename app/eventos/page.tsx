@@ -7,7 +7,7 @@ import { getEvents } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Eventos — ConCiencia Digital",
   description:
-    "Capacitaciones pasadas y próximas de ConCiencia Digital sobre IA en educación.",
+    "Capacitaciones y disertaciones de Juan Pablo en IA: Microsoft, Fusion Enercon, escuelas.",
 };
 
 export default function EventosPage() {
@@ -25,45 +25,9 @@ export default function EventosPage() {
               Eventos
             </h1>
             <p className="font-body text-gray-text text-xl max-w-xl">
-              Dónde estuvo y adónde va ConCiencia Digital.
+              Capacitaciones, disertaciones y talleres. Tres contextos distintos,
+              el mismo enfoque: tecnología que sirve a las personas.
             </p>
-          </div>
-        </section>
-
-        {/* Photo gallery */}
-        <section className="bg-black py-2">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6">
-            <div className="grid grid-cols-3 gap-2">
-              <div className="relative aspect-[4/3] col-span-2">
-                <Image
-                  src="/images/charla-docentes-1.jpeg"
-                  alt="Taller IA en Educación — docentes en círculo de diálogo"
-                  fill
-                  className="object-cover object-center"
-                  sizes="(max-width: 768px) 66vw, 50vw"
-                />
-              </div>
-              <div className="flex flex-col gap-2">
-                <div className="relative aspect-square flex-1">
-                  <Image
-                    src="/images/equipo-escuela.jpeg"
-                    alt="Con el equipo docente de la escuela"
-                    fill
-                    className="object-cover object-center"
-                    sizes="(max-width: 768px) 33vw, 20vw"
-                  />
-                </div>
-                <div className="relative aspect-square flex-1">
-                  <Image
-                    src="/images/charla-docentes-2.jpeg"
-                    alt="Facilitando charla sobre IA educativa"
-                    fill
-                    className="object-cover object-center"
-                    sizes="(max-width: 768px) 33vw, 20vw"
-                  />
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 
@@ -76,7 +40,27 @@ export default function EventosPage() {
                 </h2>
                 <div className="space-y-4">
                   {upcoming.map((e) => (
-                    <EventCard key={e.slug} event={e.frontmatter} />
+                    <div
+                      key={e.slug}
+                      className="bg-teal-light rounded-2xl px-6 py-4 flex items-center gap-4 border border-teal-mid"
+                    >
+                      <span className="text-xs font-body font-semibold bg-teal text-white px-2 py-0.5 rounded-full whitespace-nowrap">
+                        Próximo
+                      </span>
+                      <div>
+                        <p className="font-body text-xs text-gray-text">
+                          {e.frontmatter.date} · {e.frontmatter.location}
+                        </p>
+                        <h3 className="font-display text-xl text-black">
+                          {e.frontmatter.title}
+                        </h3>
+                        {e.frontmatter.description && (
+                          <p className="font-body text-sm text-gray-text mt-1">
+                            {e.frontmatter.description}
+                          </p>
+                        )}
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -87,9 +71,47 @@ export default function EventosPage() {
                 <h2 className="font-display text-2xl text-black mb-6">
                   Realizados
                 </h2>
-                <div className="space-y-4">
+                <div className="space-y-6">
                   {past.map((e) => (
-                    <EventCard key={e.slug} event={e.frontmatter} />
+                    <div
+                      key={e.slug}
+                      className="bg-white rounded-3xl overflow-hidden border border-teal-light shadow-sm"
+                    >
+                      <div
+                        className={
+                          e.frontmatter.image
+                            ? "grid grid-cols-1 md:grid-cols-2"
+                            : "p-8"
+                        }
+                      >
+                        {e.frontmatter.image && (
+                          <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[280px]">
+                            <Image
+                              src={e.frontmatter.image}
+                              alt={
+                                e.frontmatter.imageAlt ?? e.frontmatter.title
+                              }
+                              fill
+                              className="object-cover object-center"
+                              sizes="(max-width: 768px) 100vw, 50vw"
+                            />
+                          </div>
+                        )}
+                        <div className="p-8 flex flex-col justify-center">
+                          <p className="font-body text-xs text-gray-text mb-3">
+                            {e.frontmatter.date} · {e.frontmatter.location}
+                          </p>
+                          <h3 className="font-display text-2xl text-black mb-3 leading-snug">
+                            {e.frontmatter.title}
+                          </h3>
+                          {e.frontmatter.description && (
+                            <p className="font-body text-sm text-gray-text leading-relaxed">
+                              {e.frontmatter.description}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -105,38 +127,5 @@ export default function EventosPage() {
       </main>
       <Footer />
     </>
-  );
-}
-
-function EventCard({
-  event,
-}: {
-  event: {
-    title: string;
-    date: string;
-    location: string;
-    upcoming?: boolean;
-    description?: string;
-  };
-}) {
-  return (
-    <div className="bg-white rounded-2xl px-6 py-5 border border-teal-light">
-      <div className="flex items-center gap-3 mb-1">
-        {event.upcoming && (
-          <span className="text-xs font-body font-semibold bg-teal text-white px-2 py-0.5 rounded-full">
-            Próximo
-          </span>
-        )}
-        <p className="font-body text-xs text-gray-text">
-          {event.date} · {event.location}
-        </p>
-      </div>
-      <h3 className="font-display text-xl text-black">{event.title}</h3>
-      {event.description && (
-        <p className="font-body text-sm text-gray-text mt-2">
-          {event.description}
-        </p>
-      )}
-    </div>
   );
 }
