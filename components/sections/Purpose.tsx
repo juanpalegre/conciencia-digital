@@ -8,18 +8,23 @@ export function Purpose() {
           </h2>
           <div className="font-body text-gray-text text-lg leading-relaxed space-y-4">
             <p>
-              Los docentes se despiertan cada día con nuevas herramientas de IA
-              que no pidieron, que sus alumnos ya usan, y sobre las que nadie
-              los formó. Las escuelas buscan respuestas pero no saben por dónde
-              empezar.
+              Cada docente fue encontrando herramientas de IA solo,
+              intuitivamente, como pudo. Sin formación, sin criterio pedagógico,
+              sin acompañamiento.
             </p>
             <p>
-              ConCiencia Digital existe para cerrar esa brecha: no con
-              tecnicismos ni con hype, sino con formación real, situada en el
-              contexto de cada institución, y con un acompañamiento que sigue
-              después del primer día.
+              ConCiencia Digital existe para que eso cambie: para acompañar a
+              los equipos docentes a integrar la inteligencia artificial con
+              criterio, sentido pedagógico y sin ansiedad. No es una charla de
+              tecnología desconectada del aula. Es un acompañamiento que parte
+              del docente real, de sus dudas reales, y de las posibilidades
+              concretas de su institución.
             </p>
           </div>
+          <blockquote className="mt-8 border-l-4 border-teal pl-5 font-body text-gray-text italic leading-relaxed">
+            &ldquo;Enseñar con tecnología no es saber de tecnología. Es saber para qué
+            sirve, cuándo usarla y cuándo no.&rdquo;
+          </blockquote>
         </div>
       </div>
     </section>

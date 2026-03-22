@@ -16,8 +16,10 @@ export function Hero() {
               Tecnología con propósito para docentes y escuelas.
             </h1>
             <p className="font-body text-lg text-gray-text leading-relaxed mb-10">
-              La IA llegó sin que nadie avisara. Acompaño a instituciones
-              educativas a integrarla con sentido pedagógico y valores humanos.
+              La IA llegó sin que nadie avisara y sin que nadie capacitara a
+              nadie. Cada docente fue encontrando herramientas solo,
+              intuitivamente, como pudo. ConCiencia Digital existe para que eso
+              cambie.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
@@ -41,7 +43,7 @@ export function Hero() {
           <div className="relative">
             <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
               <Image
-                src="/images/charla-docentes-1.jpeg"
+                src="/images/charla-docentes-2.jpeg"
                 alt="Juan Pablo facilitando una charla sobre IA en educación con docentes"
                 fill
                 className="object-cover object-center"

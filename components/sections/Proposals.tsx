@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { PROPOSALS } from "@/lib/config";
 
-function formatPrice(price: number, currency: string) {
-  return `$${price.toLocaleString("es-AR")} ${currency}`;
+function formatPrice(price: number) {
+  return `$${price.toLocaleString("es-AR")}`;
 }
 
 export function Proposals() {
@@ -17,68 +17,78 @@ export function Proposals() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Opción 1 */}
-          <div className="border-2 border-teal-mid rounded-2xl p-8 bg-white">
-            <p className="text-xs font-body font-semibold uppercase tracking-widest text-teal mb-4">
-              Opción 1
-            </p>
-            <h3 className="font-display text-2xl text-black mb-2">
-              {PROPOSALS.opcion1.title}
-            </h3>
-            <p className="font-body text-3xl font-semibold text-teal mb-1">
-              {formatPrice(PROPOSALS.opcion1.price, PROPOSALS.opcion1.currency)}
-            </p>
-            <p className="font-body text-sm text-gray-text mb-6">
-              {PROPOSALS.opcion1.duration}
-            </p>
-            <p className="font-body text-gray-text leading-relaxed mb-6">
+          <div className="border-2 border-teal-mid rounded-2xl p-8 bg-white flex flex-col">
+            <div className="mb-6">
+              <p className="text-xs font-body font-semibold uppercase tracking-widest text-teal mb-3">
+                Opción 1
+              </p>
+              <h3 className="font-display text-2xl text-black mb-1">
+                {PROPOSALS.opcion1.title}
+              </h3>
+              <p className="font-body text-sm text-gray-text italic mb-4">
+                {PROPOSALS.opcion1.subtitle}
+              </p>
+              <p className="font-body text-3xl font-semibold text-teal mb-1">
+                {formatPrice(PROPOSALS.opcion1.price)}
+              </p>
+              <p className="font-body text-sm text-gray-text">
+                {PROPOSALS.opcion1.duration}
+              </p>
+            </div>
+            <p className="font-body text-gray-text leading-relaxed mb-6 text-sm">
               {PROPOSALS.opcion1.description}
             </p>
             <ul className="space-y-2 mb-8">
-              {PROPOSALS.opcion1.includes.map((item) => (
+              {PROPOSALS.opcion1.includes.slice(0, 5).map((item) => (
                 <li key={item} className="flex items-start gap-2 font-body text-sm text-gray-text">
-                  <span className="text-teal mt-0.5">✓</span>
+                  <span className="text-teal mt-0.5 shrink-0">✓</span>
                   {item}
                 </li>
               ))}
             </ul>
             <Link
               href="/propuestas"
-              className="block text-center bg-teal text-white font-body font-semibold px-6 py-3 rounded-full hover:bg-teal/90 transition-colors"
+              className="mt-auto block text-center bg-teal text-white font-body font-semibold px-6 py-3 rounded-full hover:bg-teal/90 transition-colors"
             >
-              Ver detalles
+              Ver detalles completos
             </Link>
           </div>
 
           {/* Opción 2 */}
-          <div className="border-2 border-blue rounded-2xl p-8 bg-blue-light">
-            <p className="text-xs font-body font-semibold uppercase tracking-widest text-blue mb-4">
-              Opción 2
-            </p>
-            <h3 className="font-display text-2xl text-black mb-2">
-              {PROPOSALS.opcion2.title}
-            </h3>
-            <p className="font-body text-3xl font-semibold text-blue mb-1">
-              {formatPrice(PROPOSALS.opcion2.price, PROPOSALS.opcion2.currency)}
-            </p>
-            <p className="font-body text-sm text-gray-text mb-6">
-              {PROPOSALS.opcion2.duration}
-            </p>
-            <p className="font-body text-gray-text leading-relaxed mb-6">
+          <div className="border-2 border-blue rounded-2xl p-8 bg-blue-light flex flex-col">
+            <div className="mb-6">
+              <p className="text-xs font-body font-semibold uppercase tracking-widest text-blue mb-3">
+                Opción 2
+              </p>
+              <h3 className="font-display text-2xl text-black mb-1">
+                {PROPOSALS.opcion2.title}
+              </h3>
+              <p className="font-body text-sm text-gray-text italic mb-4">
+                {PROPOSALS.opcion2.subtitle}
+              </p>
+              <p className="font-body text-3xl font-semibold text-blue mb-1">
+                {formatPrice(PROPOSALS.opcion2.price)}
+              </p>
+              <p className="font-body text-sm text-gray-text">
+                {PROPOSALS.opcion2.duration} de proceso completo
+              </p>
+            </div>
+            <p className="font-body text-gray-text leading-relaxed mb-6 text-sm">
               {PROPOSALS.opcion2.description}
             </p>
             <ul className="space-y-2 mb-8">
-              {PROPOSALS.opcion2.includes.map((item) => (
+              {PROPOSALS.opcion2.includes.slice(0, 5).map((item) => (
                 <li key={item} className="flex items-start gap-2 font-body text-sm text-gray-text">
-                  <span className="text-blue mt-0.5">✓</span>
+                  <span className="text-blue mt-0.5 shrink-0">✓</span>
                   {item}
                 </li>
               ))}
             </ul>
             <Link
               href="/propuestas"
-              className="block text-center bg-blue text-white font-body font-semibold px-6 py-3 rounded-full hover:bg-blue/90 transition-colors"
+              className="mt-auto block text-center bg-blue text-white font-body font-semibold px-6 py-3 rounded-full hover:bg-blue/90 transition-colors"
             >
-              Ver detalles
+              Ver detalles completos
             </Link>
           </div>
         </div>
