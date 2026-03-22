@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { ContentItem, EventFrontmatter } from "@/lib/content";
 
 interface Props {
@@ -28,8 +29,32 @@ export function Events({ events }: Props) {
           </Link>
         </div>
 
+        {/* Photo strip — real evidence */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-12 rounded-2xl overflow-hidden">
+          <div className="relative aspect-[4/3] col-span-1 md:col-span-2">
+            <Image
+              src="/images/charla-docentes-2.jpeg"
+              alt="Juan Pablo facilitando taller de IA con docentes"
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 768px) 50vw, 33vw"
+            />
+          </div>
+          <div className="relative aspect-[4/3]">
+            <Image
+              src="/images/equipo-escuela.jpeg"
+              alt="Juan Pablo con el equipo docente de una escuela"
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 768px) 50vw, 33vw"
+            />
+          </div>
+        </div>
+
         {preview.length === 0 ? (
-          <p className="font-body text-gray-text">Próximamente nuevas fechas.</p>
+          <p className="font-body text-gray-text">
+            Próximamente nuevas fechas.
+          </p>
         ) : (
           <div className="space-y-4">
             {preview.map((e) => (

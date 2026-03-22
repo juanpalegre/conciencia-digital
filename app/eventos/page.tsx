@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { getEvents } from "@/lib/content";
@@ -26,6 +27,43 @@ export default function EventosPage() {
             <p className="font-body text-gray-text text-xl max-w-xl">
               Dónde estuvo y adónde va ConCiencia Digital.
             </p>
+          </div>
+        </section>
+
+        {/* Photo gallery */}
+        <section className="bg-black py-2">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6">
+            <div className="grid grid-cols-3 gap-2">
+              <div className="relative aspect-[4/3] col-span-2">
+                <Image
+                  src="/images/charla-docentes-1.jpeg"
+                  alt="Taller IA en Educación — docentes en círculo de diálogo"
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 768px) 66vw, 50vw"
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <div className="relative aspect-square flex-1">
+                  <Image
+                    src="/images/equipo-escuela.jpeg"
+                    alt="Con el equipo docente de la escuela"
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 768px) 33vw, 20vw"
+                  />
+                </div>
+                <div className="relative aspect-square flex-1">
+                  <Image
+                    src="/images/charla-docentes-2.jpeg"
+                    alt="Facilitando charla sobre IA educativa"
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 768px) 33vw, 20vw"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
