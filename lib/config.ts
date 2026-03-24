@@ -109,14 +109,6 @@ export const RESOURCES = [
     file: "/docs/ConCienciaDigital_Propuesta_Servicios.docx",
     fileLabel: "Descargar .docx",
   },
-  {
-    slug: "programa-tecnologias",
-    title: "Programa nuevas tecnologías",
-    description:
-      "Programa de formación docente en nuevas tecnologías educativas.",
-    file: "/docs/programa_nuevas_tecnologias.docx",
-    fileLabel: "Descargar .docx",
-  },
 ] as const;
 
 export const COMPARISON_TABLE: {
