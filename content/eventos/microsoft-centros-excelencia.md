@@ -1,6 +1,6 @@
 ---
 title: "Capacitación en Centros de Excelencia de IA — Microsoft"
-date: "2024-11-01"
+date: "2025-11-01"
 location: "Microsoft Argentina, Buenos Aires"
 upcoming: false
 description: "Disertación sobre arquitecturas de IA y automatización para equipos técnicos en el programa de Centros de Excelencia de Microsoft."

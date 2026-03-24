@@ -4,26 +4,21 @@ export function Purpose() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="max-w-2xl">
           <h2 className="font-display text-3xl md:text-4xl text-black mb-6">
-            ¿Para qué existe ConCiencia Digital?
+            Cómo surge ConCiencia Digital
           </h2>
           <div className="font-body text-gray-text text-lg leading-relaxed space-y-4">
             <p>
-              Cada docente fue encontrando herramientas de IA solo,
-              intuitivamente, como pudo. Sin formación, sin criterio pedagógico,
-              sin acompañamiento.
+              La inteligencia artificial empezó a aparecer en el aula sin demasiado contexto.
+              Cada docente fue encontrando herramientas como pudo: probando, explorando, resolviendo sobre la marcha.
+              Pero sin formación ni acompañamiento, es difícil saber qué vale la pena, qué no, y cómo usarlo con sentido pedagógico.
             </p>
             <p>
-              ConCiencia Digital existe para que eso cambie: para acompañar a
-              los equipos docentes a integrar la inteligencia artificial con
-              criterio, sentido pedagógico y sin ansiedad. No es una charla de
-              tecnología desconectada del aula. Es un acompañamiento que parte
-              del docente real, de sus dudas reales, y de las posibilidades
-              concretas de su institución.
+              ConCiencia Digital surge para ordenar ese proceso: acompañar a docentes y escuelas a integrar la IA con criterio, de forma gradual y aplicada a su realidad.
+              No es una charla aislada. Es un trabajo pensado desde el aula real, con sus tiempos, sus dudas y sus posibilidades.
             </p>
           </div>
           <blockquote className="mt-8 border-l-4 border-teal pl-5 font-body text-gray-text italic leading-relaxed">
-            &ldquo;Enseñar con tecnología no es saber de tecnología. Es saber para qué
-            sirve, cuándo usarla y cuándo no.&rdquo;
+            &ldquo;Integrar tecnología no es una cuestión técnica. Es una decisión pedagógica.&rdquo;
           </blockquote>
         </div>
       </div>

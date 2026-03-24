@@ -4,32 +4,20 @@ export function About() {
   return (
     <section className="py-20 bg-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-          {/* Photos column */}
-          <div className="space-y-4">
-            <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-lg">
-              <Image
-                src="/images/perfil.jpg"
-                alt="Juan Pablo Alegre"
-                fill
-                className="object-cover object-top"
-                sizes="(max-width: 768px) 100vw, 40vw"
-              />
-            </div>
-            {/* Microsoft credential — subtle, not the hero */}
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md">
-              <Image
-                src="/images/microsoft.jpg"
-                alt="Juan Pablo en Microsoft Argentina"
-                fill
-                className="object-cover object-center"
-                sizes="(max-width: 768px) 100vw, 40vw"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-black/50 px-4 py-2">
-                <p className="font-body text-xs text-white/80">
-                  Microsoft Argentina — evento de IA, 2024
-                </p>
-              </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          {/* Photo column — Microsoft only */}
+          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
+            <Image
+              src="/images/microsoft.jpg"
+              alt="Juan Pablo en Microsoft Argentina"
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 768px) 100vw, 40vw"
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-black/50 px-4 py-3">
+              <p className="font-body text-xs text-white/80">
+                Microsoft Argentina — Centros de Excelencia de IA, 2025
+              </p>
             </div>
           </div>
 
@@ -39,29 +27,21 @@ export function About() {
               Quién soy
             </p>
             <h2 className="font-display text-3xl md:text-4xl text-black mb-6 leading-tight">
-              Fui docente diez años. Hoy trabajo con IA. Nunca dejé de pensar
-              en el aula.
+              Ayudo a escuelas a entender y usar la inteligencia artificial de forma concreta.
             </h2>
             <div className="font-body text-gray-text text-base leading-relaxed space-y-4">
               <p>
-                Empecé dando clases en escuelas del GBA. Enseñé tecnología,
-                programación y robótica en distintos niveles. Sé lo que es
-                preparar una clase con pocos recursos, con grupos difíciles, con
-                poco tiempo.
+                Combino experiencia en el aula, formación en gestión educativa y trabajo en proyectos reales de tecnología. Eso me permite traducir lo complejo en herramientas útiles para docentes y equipos directivos.
               </p>
               <p>
-                Después me formé como ingeniero de IA. Trabajé en proyectos con
-                empresas, participé en eventos de Microsoft, y entendí de primera
-                mano lo que viene.
+                También participo en charlas y espacios de formación sobre IA, y trabajo con tecnologías aplicadas en entornos reales.
               </p>
               <p>
-                ConCiencia Digital nació de esa tensión: entre lo que la
-                tecnología puede hacer y lo que la escuela necesita. Mi rol es
-                ser el puente, sin vender humo, sin simplificar de más.
+                ConCiencia Digital nace para cerrar la brecha entre lo que la tecnología promete y lo que realmente se puede aplicar en la escuela hoy.
               </p>
             </div>
 
-            {/* Credentials — simple list */}
+            {/* Credentials */}
             <div className="mt-8 grid grid-cols-2 gap-4">
               {[
                 { number: "10+", label: "años en el aula" },

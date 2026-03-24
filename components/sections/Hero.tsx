@@ -16,10 +16,9 @@ export function Hero() {
               Tecnología con propósito para docentes y escuelas.
             </h1>
             <p className="font-body text-lg text-gray-text leading-relaxed mb-10">
-              La IA llegó sin que nadie avisara y sin que nadie capacitara a
-              nadie. Cada docente fue encontrando herramientas solo,
-              intuitivamente, como pudo. ConCiencia Digital existe para que eso
-              cambie.
+              La IA ya se está usando en las escuelas.
+              La diferencia está en cómo.
+              Acompaño a equipos docentes a integrarla de forma clara, útil y sin complicaciones.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
